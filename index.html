@@ -7,41 +7,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Page Container -->
-    <div class="page-container">
+    <header>
+        <div class="logo">Clean My Shit</div>
+        <div class="nav-links">My Account</div>
+    </header>
 
-        <!-- Steps -->
-        <div id="stepContainer" class="container">
-            <div id="stepContent">
-                <!-- Step content will appear here -->
-            </div>
-        
-            <div class="button-group">
-                <button id="backButton" disabled>Back</button>
-                <button id="nextButton">Next</button>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero" id="heroSection">
+        <h1>Forget everything you know about being clean.</h1>
+        <p>Instant booking. Incredible prices. Big heart.</p>
+        <button class="cta-button" onclick="startFlow()">CHECK OUR PRICES</button>
+    </section>
+
+    <!-- Step Form Section -->
+    <!-- Steps -->
+    <section id="stepContainer" style="display: none;">
+        <div id="stepContent">
+            <!-- Step content will appear here -->
         </div>
-
-        <!-- Calendar -->
-        <div id="calendarContainer" style="display: none;">
-            <!-- Cal inline embed code begins -->
-            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
-            <script type="text/javascript">
-            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-            Cal("init", "cleaning", {origin:"https://cal.com"});
-
-            Cal.ns.cleaning("inline", {
-                elementOrSelector:"#my-cal-inline",
-                config: {"layout":"month_view"},
-                calLink: "cleanmyshit/cleaning",
-            });
-
-            Cal.ns.cleaning("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-            </script>
-            <!-- Cal inline embed code ends -->
+    
+        <div class="button-group">
+            <button id="backButton" disabled>Back</button>
+            <button id="nextButton">Next</button>
         </div>
+    </section>
 
+    <script>
+        function startFlow() {
+          document.getElementById('heroSection').style.display = 'none';
+          document.getElementById('stepContainer').style.display = 'flex';
+        }
+    </script>
+
+    <!-- Calendar -->
+    <div id="calendarContainer" style="display: none;">
+        <!-- Cal inline embed code begins -->
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+        <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "cleaning", {origin:"https://cal.com"});
+
+        Cal.ns.cleaning("inline", {
+            elementOrSelector:"#my-cal-inline",
+            config: {"layout":"month_view"},
+            calLink: "cleanmyshit/cleaning",
+        });
+
+        Cal.ns.cleaning("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+        <!-- Cal inline embed code ends -->
     </div>
+
 
     <script src="script.js"></script>
 
